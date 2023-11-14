@@ -530,8 +530,8 @@ function roundToLargestInteger(number) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(number) {
+  return Math.round(number);
 }
 
 /**
@@ -545,8 +545,8 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  return Math.trunc(number);
 }
 
 /**
@@ -561,8 +561,20 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  const arr = [x1.toString(), x2.toString(), x3.toString()];
+  const arrN = [];
+  arr.forEach((x) => {
+    const n = x.indexOf('.');
+    if (n === -1) {
+      arrN.push(0);
+    } else arrN.push(x.length - n - 1);
+  });
+  arrN.sort((a, b) => b - a);
+  return (
+    (x1 * 10 ** arrN[0] + x2 * 10 ** arrN[0] + x3 * 10 ** arrN[0]) /
+    10 ** arrN[0]
+  );
 }
 
 /**
@@ -577,8 +589,8 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
